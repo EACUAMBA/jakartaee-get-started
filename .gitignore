@@ -2,6 +2,5 @@ target
 /target
 
 *.iml
-/idea
-
-nb-configuration.xml
+/.idea
+.idea
