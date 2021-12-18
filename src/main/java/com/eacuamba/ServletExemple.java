@@ -23,20 +23,20 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns = {"/hello"})
 public class ServletExemple extends HttpServlet{
 
-    @Inject
-    private PessoaDAO pesssoDAO;
+//    @Inject
+//    private PessoaDAO pesssoDAO;
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (PrintWriter pw = resp.getWriter()) {
             pw.append("Edilson Alexandre Cuamba - ");
             
-            if(this.pesssoDAO != null){
-                pw.append("Injectado!");
-                Pessoa pessoa = new Pessoa();
-                pessoa.setNome("Edilson");
-                this.pesssoDAO.save(pessoa);
-            }
+//            if(this.pesssoDAO != null){
+//                pw.append("Injectado!");
+//                Pessoa pessoa = new Pessoa();
+//                pessoa.setNome("Edilson");
+//                //this.pesssoDAO.save(pessoa);
+//            }
             pw.flush();
             pw.close();
         }

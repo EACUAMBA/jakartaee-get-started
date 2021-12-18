@@ -18,7 +18,7 @@ import java.util.List;
  */
 public abstract class GenericDAO <T, R> {
     
-    @PersistenceContext(unitName = "JakartaEE_DevPU")
+    //@PersistenceContext(unitName = "JakartaEE_DevPU")
     private EntityManager entityManager;
     
     private Class _class;

@@ -5,25 +5,25 @@
  */
 package com.eacuamba.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  *
  * @author EACUAMBA
  */
 @Entity
-@Table
+@Table(name = "pessoa")
 public class Pessoa {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
+    @Column(name = "pessoa_nome")
     private String nome;
+
+    @Column(name = "endereco")
+    private String endereco;
 
     public Long getId() {
         return id;
@@ -40,6 +40,12 @@ public class Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 }

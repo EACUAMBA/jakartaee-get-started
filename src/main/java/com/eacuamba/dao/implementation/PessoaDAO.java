@@ -13,7 +13,7 @@ import jakarta.enterprise.context.ApplicationScoped;
  *
  * @author EACUAMBA
  */
-@ApplicationScoped
+//@ApplicationScoped
 public class PessoaDAO extends GenericDAO<Pessoa, Long>{  
     public PessoaDAO(){
         this.setClass(Pessoa.class);

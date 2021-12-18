@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 	
     <groupId>com.jakartaee.eacuamba</groupId>
-    <artifactId>get-started</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>jakartaee-get-started</artifactId>
+    <version>1.1</version>
     <packaging>war</packaging>
         
     <name>jakartaee-get-started</name>
     <!-- FIXME change it to the project's website -->
-    <url>http://www.jakartaee.eacuamba.com</url>
+    <url>http://www.jakartaee.eacuamba.com/get-started</url>
 	
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,16 +25,11 @@
             <artifactId>hibernate-core-jakarta</artifactId>
             <version>5.6.2.Final</version>
         </dependency>
-
-
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.27</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.1</version>
         </dependency>
-
-            
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
@@ -51,6 +46,7 @@
     </dependencies>
 	
     <build>
+        <finalName>${artifactId}</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
