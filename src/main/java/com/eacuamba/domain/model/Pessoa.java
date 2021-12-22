@@ -7,6 +7,8 @@ package com.eacuamba.domain.model;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 /**
  *
  * @author EACUAMBA
@@ -16,14 +18,12 @@ import jakarta.persistence.*;
 public class Pessoa {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "pessoa_id", sequenceName = "pessoa_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoa_id")
     private Long id;
 
-    @Column(name = "pessoa_nome")
+    @Column(nullable = false, length = 150)
     private String nome;
-
-    @Column(name = "endereco")
-    private String endereco;
 
     public Long getId() {
         return id;
@@ -41,11 +41,16 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return Objects.equals(id, pessoa.id);
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -9,7 +9,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-@Path("/api/pessoa")
+@Path("/pessoa")
 @ApplicationScoped
 public class PessoaController {
     @Inject
@@ -23,8 +23,7 @@ public class PessoaController {
 
     @GET
     public List<Pessoa> getAllPessoa(){
-        List<Pessoa> pessoaList = this.pessoaRepository.findAll().orElseThrow(()->new NotFoundException("Sem pessoas no banco de dados"));
-        return pessoaList;
+        return this.pessoaRepository.findAll().orElseThrow(()->new NotFoundException("Sem pessoas no banco de dados"));
     }
 
     @GET
