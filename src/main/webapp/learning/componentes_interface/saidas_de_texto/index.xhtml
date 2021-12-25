@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+<h:head>
+    <title>Saidas de texto</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputText value="Ele esta "/>
+        <h:outputText value="Bold" style="font-weight: bolder"/>
+        <br/>
+        <h:outputFormat value="O meu nome é {0} e tenho {1} anos de idade.">
+            <f:param value="Edilson Alexandre Cuamba"/>
+            <f:param value="22"/>
+        </h:outputFormat>
+        <br/>
+        <h:outputLabel value="Nome:" for="nome"/>
+        <h:inputText id="nome"/>
+    </h:form>
+</h:body>
+</html>

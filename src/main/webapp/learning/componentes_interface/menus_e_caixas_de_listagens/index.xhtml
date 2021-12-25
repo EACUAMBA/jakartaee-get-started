@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<h:head>
+    <title>Formularios</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputLabel value="SelectOne Provincia #{menus_e_Caixas_de_Listagens.provincia}" for="select_provincia"/>
+        <h:selectOneMenu value="#{menus_e_Caixas_de_Listagens.provincia}" id="select_provincia" onchange="">
+            <f:selectItem itemValue="Maputo"/>
+            <f:selectItem itemValue="Gaza" itemLabel="Xai-xai"/>
+            <f:selectItem itemValue="Inhambane"/>
+            <f:selectItem itemValue="Sefala" itemLabel="Beira"/>
+            <f:selectItem itemValue="Manica"/>
+        </h:selectOneMenu>
+
+        <h:outputLabel value="SelectMany Provincia #{menus_e_Caixas_de_Listagens.provinciastoString}" for="selectmany_provincia"/>
+        <h:selectManyMenu value="#{menus_e_Caixas_de_Listagens.provincias}" id="selectmany_provincia" onchange="">
+            <f:selectItem itemValue="Maputo"/>
+            <f:selectItem itemValue="Gaza" itemLabel="Xai-xai"/>
+            <f:selectItem itemValue="Inhambane"/>
+            <f:selectItem itemValue="Sefala" itemLabel="Beira"/>
+            <f:selectItem itemValue="Manica"/>
+        </h:selectManyMenu>
+
+        <h:outputLabel value="SelectManyListBox Provincia #{menus_e_Caixas_de_Listagens.provinciastoString}" for="selectmanylistbox_provincia"/>
+        <h:selectManyListbox value="#{menus_e_Caixas_de_Listagens.provincias}" id="selectmanylistbox_provincia" size="10">
+            <f:selectItem itemValue="Maputo"/>
+            <f:selectItem itemValue="Gaza" itemLabel="Xai-xai"/>
+            <f:selectItem itemValue="Inhambane"/>
+            <f:selectItem itemValue="Sefala" itemLabel="Beira"/>
+            <f:selectItem itemValue="Manica"/>
+        </h:selectManyListbox>
+
+
+    <h:commandButton value="enviar" action="#{menus_e_Caixas_de_Listagens.processar}"/>
+    </h:form>
+
+</h:body>
+
+
+</html>

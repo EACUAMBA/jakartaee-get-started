@@ -1,4 +1,4 @@
-package com.eacuamba.domain.bean;
+package com.eacuamba.faces.bean.learning;
 
 import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -9,12 +9,10 @@ import jakarta.inject.Named;
 
 import java.io.Serializable;
 
-@Named()
-@ApplicationScoped
-public class OlaBean implements Serializable {
+public class CumprimentaBean implements Serializable {
     private String nome;
     private String apelido;
-    private String nomeCompleto;
+    private String nomeCompleto = "";
     private HtmlInputText inputTextNome;
 
     public void dizerOla(){

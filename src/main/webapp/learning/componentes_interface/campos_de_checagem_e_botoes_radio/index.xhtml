@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<h:head>
+    <title>Campos de checagem e botões rádio</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputLabel for="selectoneradio"
+                       value="Select one radio estado civil: #{campos_de_Checagem_e_BotoesRadio.estadoCivil}"/>
+        <h:selectOneRadio id="selectoneradio" value="#{campos_de_Checagem_e_BotoesRadio.estadoCivil}"
+                          layout="pageDirection">
+            <f:selectItem itemValue="Casado" itemLabel="Casado"/>
+            <f:selectItem itemValue="Solteiro" itemLabel="Solteiro"/>
+            <f:selectItem itemValue="Viuvo" itemLabel="Viuvo"/>
+            <f:selectItem itemValue="Divorciado" itemLabel="Divorciado"/>
+        </h:selectOneRadio>
+
+        <h:selectBooleanCheckbox id="selectbooleanradio"/>
+        <h:outputLabel for="selectbooleanradio" value="Termos e condicoes"/>
+
+        <h:outputLabel for="selectmanycheckbox"
+                       value="Estados da agua:"/>
+        <h:selectManyCheckbox id="selectmanycheckbox"
+                          layout="pageDirection">
+            <f:selectItems value="#{campos_de_Checagem_e_BotoesRadio.estadosDaAgua}"/>
+        </h:selectManyCheckbox>
+
+
+        <br/>
+        <br/>
+        <h:commandButton value="Enviar" action="#{campos_de_Checagem_e_BotoesRadio.processar}"/>
+    </h:form>
+</h:body>
+
+
+</html>

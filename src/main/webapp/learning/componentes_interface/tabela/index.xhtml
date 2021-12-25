@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<h:head>
+    <title>Formularios</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet library="css" name="button.css"/>
+    <h:outputScript library="js" name="script.js"/>
+        <h:form>
+
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Designacao: "/>
+                <h:inputText value="#{tabelaDeDadosBean.novoPais.designacao}" />
+                <h:outputLabel value="ISO: "/>
+                <h:inputText value="#{tabelaDeDadosBean.novoPais.iso}" />
+                <h:outputLabel />
+                <h:commandButton value="Adicionar"
+                                 action="#{tabelaDeDadosBean.adicionar}" styleClass="btn" />
+            </h:panelGrid>
+        </h:form>
+            <h:dataTable value="#{tabelaDeDadosBean.paises}" var="pais"
+                         border="1" cellspacing="0" cellpadding="2">
+                <f:facet name="header">
+                    Relação de paises e iso
+                </f:facet>
+                <h:column>
+                    <f:facet name="header">Designacao</f:facet>
+                    <h:outputText value="#{pais.designacao}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ISO</f:facet>
+                    <h:outputText value="#{pais.iso}" />
+                </h:column>
+            </h:dataTable>
+
+
+</h:body>
+
+
+</html>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.3"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+
+    <!--    • @NoneScoped: o bean será instanciado a cada vez que for referenciado.-->
+    <!--    • @RequestScoped (padrão): tem vida curta, começando quando é-->
+    <!--    referenciado em uma única requisição HTTP e terminando quando a-->
+    <!--    resposta é enviada de volta ao cliente.-->
+    <!--    • @ViewScoped: a instância permanece ativa até que o usuário navegue para-->
+    <!--    uma próxima página.-->
+    <!--    • @SessionScoped: mantém a instância durante diversas requisições e até-->
+    <!--    mesmo navegações entre páginas, até que a sessão do usuário seja invalidada-->
+    <!--    ou o tempo limite é atingido. Cada usuário possui sua sessão de navegação,-->
+    <!--    portanto, os objetos não são compartilhados entre os usuários.-->
+    <!--    • @ApplicationScoped: mantém a instância durante todo o tempo de-->
+    <!--    execução da aplicação. É um escopo que compartilha os objetos para todos-->
+    <!--    os usuários do sistema.-->
+
+    <managed-bean>
+        <managed-bean-name>cumprimentaBean</managed-bean-name>
+        <managed-bean-class>com.eacuamba.faces.bean.learning.CumprimentaBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <navigation-rule>
+        <from-view-id>/learning/navegacao/explicita/index.xhtml</from-view-id>
+<!--        <from-view-id>/learning/navegacao/explicita/*</from-view-id> Usando um wildcard para selecionar todos os elementos da pasta-->
+        <navigation-case>
+            <from-outcome>cumprimenta</from-outcome>
+            <to-view-id>/learning/cumprimenta.xhtml</to-view-id>
+<!--            <redirect/> Inclua isto para redirecionar-->
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

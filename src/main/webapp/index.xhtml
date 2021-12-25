@@ -6,17 +6,30 @@
 
 <h:head>
     <title>Olá JSF</title>
+    <h:outputStylesheet>
+        body{
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+
+            background: crimson;
+            color: white;
+        }
+
+        h1{
+            font-size: 3rem;
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+    </h:outputStylesheet>
 </h:head>
 
 <h:body>
-    <h:form>
-        <h1>Olá #{olaBean.nomeCompleto}</h1>
-        <br/>
-        Nome: <h:inputText binding="#{olaBean.inputTextNome}" value="#{olaBean.nome}"/>
-        <br/>
-        Apelido<h:inputText value="#{olaBean.apelido}"/>
-        <br/>
-        <h:commandButton value="Dizer olá" action="#{olaBean.dizerOla}"/>
-    </h:form>
+        <h1>Olá bem vindo ao meu projecto de aprendizagem de JSF.</h1>
 </h:body>
 </html>

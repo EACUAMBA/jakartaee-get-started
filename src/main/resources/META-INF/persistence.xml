@@ -6,7 +6,7 @@
     <properties>
       <property name="hibernate.transaction.jta.platform" value="org.hibernate.engine.transaction.jta.platform.internal.SunOneJtaPlatform"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />
-      <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/data.sql" />-->
+      <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/data.sql" />
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value= "true" />
       <property name="hibernate.hbm2ddl.auto" value="update"/>

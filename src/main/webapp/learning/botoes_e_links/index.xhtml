@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<h:head>
+    <title>Botao e Links</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:commandButton value="Submeter"/>
+        <h:commandButton value="Resetar" type="reset"/>
+        <h:commandButton value="Com icon" image="/resources/icon/arrow.png" style="width: 100px;"/>
+
+        <br/>
+        <br/>
+
+        <h:commandLink value="Link sem imagen"/>
+        <h:commandLink>
+            <h:graphicImage library="icon" name="arrow.png" width="100px"/>
+            <h:outputText value="link com imagem"/>
+        </h:commandLink>
+
+        <br/>
+        <br/>
+
+        <h:outputLink value="http://" >
+            <h:graphicImage value="/resources/icon/arrow.png"/>
+        </h:outputLink>
+
+        <h:outputLink value="http://querystring" >
+            <f:param name="codigo" value="11232"/>
+            <f:param name="unidade" value="kilo"/>
+            <h:graphicImage value="/resources/icon/arrow.png"/>
+        </h:outputLink>
+
+
+
+    </h:form>
+</h:body>
+
+
+</html>
