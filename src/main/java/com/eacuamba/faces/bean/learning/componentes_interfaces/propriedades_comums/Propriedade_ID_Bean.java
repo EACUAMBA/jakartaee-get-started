@@ -1,6 +1,5 @@
 package com.eacuamba.faces.bean.learning.componentes_interfaces.propriedades_comums;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.component.html.HtmlInputText;
 import jakarta.inject.Named;
@@ -16,9 +15,8 @@ public class Propriedade_ID_Bean implements Serializable {
 
     public void processar(){
         this.valor = (String)this.inputTextValor.getValue();
-        if(!this.valor.trim().startsWith("render")){
-            this.rederizar =true;
-        }else this.rederizar = false;
+        this.rederizar = this.valor.trim().startsWith("render");
+
     }
 
     public String getValor(){
