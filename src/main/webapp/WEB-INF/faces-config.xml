@@ -20,7 +20,7 @@
 
     <managed-bean>
         <managed-bean-name>cumprimentaBean</managed-bean-name>
-        <managed-bean-class>com.eacuamba.faces.bean.learning.CumprimentaBean</managed-bean-class>
+        <managed-bean-class>com.eacuamba.faces.bean.CumprimentaBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
@@ -33,4 +33,22 @@
 <!--            <redirect/> Inclua isto para redirecionar-->
         </navigation-case>
     </navigation-rule>
+
+    <application>
+        <locale-config>
+            <default-locale>pt</default-locale>
+        </locale-config>
+
+<!--        Usamos resource bandle para internacionalizar os nossos textos-->
+        <resource-bundle>
+            <base-name>messages</base-name>
+            <var>messages_pt</var>
+        </resource-bundle>
+
+<!--        Usamos messages bundles para customizar mensagens de erro, alterar as mensagens de validação e por ai em diante, resumo alterar mensagens padrão do JSF-->
+        <message-bundle>
+            messages
+        </message-bundle>
+
+    </application>
 </faces-config>
