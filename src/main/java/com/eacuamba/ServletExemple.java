@@ -5,8 +5,12 @@
  */
 package com.eacuamba;
 
+import com.eacuamba.config.StartupConfig;
+import com.eacuamba.config.resource_bundle.ResourceBundleWraper;
 import com.eacuamba.dao.implementation.PessoaDAO;
+import com.eacuamba.domain.model.Lancamento;
 import com.eacuamba.domain.model.Pessoa;
+import com.eacuamba.domain.repository.LancamentoRepository;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,30 +19,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
 
 /**
  *
  * @author EACUAMBA
  */
-@WebServlet(urlPatterns = {"/hello"})
+@WebServlet(urlPatterns = {"/teste"})
 public class ServletExemple extends HttpServlet{
 
-//    @Inject
-//    private PessoaDAO pesssoDAO;
+    @Inject
+    private LancamentoRepository lancamentoRepository;
     
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try (PrintWriter pw = resp.getWriter()) {
-            pw.append("Edilson Alexandre Cuamba - ");
-            
-//            if(this.pesssoDAO != null){
-//                pw.append("Injectado!");
-//                Pessoa pessoa = new Pessoa();
-//                pessoa.setNome("Edilson");
-//                //this.pesssoDAO.save(pessoa);
-//            }
+            StartupConfig.init();
+            pw.append(ResourceBundleWraper.getBundle("messages", new Locale("pt"), new ResourceBundleWraper.Control("UTF8", "properties")).getString("uma.frase.em.utf8"));
+            pw.append("\n\n\n");
+            lancamentoRepository.findAll().forEach((lancamento -> pw.append(lancamento.toString()).append("\n\n")));
+
             pw.flush();
-            pw.close();
         }
     }
     
