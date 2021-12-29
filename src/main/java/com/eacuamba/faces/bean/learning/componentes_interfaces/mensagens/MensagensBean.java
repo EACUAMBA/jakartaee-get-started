@@ -1,10 +1,8 @@
 package com.eacuamba.faces.bean.learning.componentes_interfaces.mensagens;
 
-import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
-import jakarta.faces.view.facelets.FaceletContext;
 import jakarta.inject.Named;
 
 import java.util.concurrent.TimeUnit;
@@ -12,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 @ApplicationScoped
 @Named
 public class MensagensBean {
+
     private String email;
 
     public void assinar() throws InterruptedException {
