@@ -1,4 +1,4 @@
-package com.eacuamba.faces.bean.learning;
+package com.eacuamba.faces.bean;
 
 import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.ApplicationScoped;
