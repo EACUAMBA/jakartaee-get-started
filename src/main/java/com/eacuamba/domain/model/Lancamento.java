@@ -13,7 +13,7 @@ import java.util.Objects;
 @Table(name = "lancamento", schema = "dev_schema")
 public class Lancamento implements Serializable {
     @Id
-    @SequenceGenerator(name = "lancamento_id", sequenceName = "lancamento_id_seq", allocationSize = 1, initialValue = 1)
+    @SequenceGenerator(name = "lancamento_id", sequenceName = "lancamento_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lancamento_id")
     private Long id;
 
@@ -34,7 +34,7 @@ public class Lancamento implements Serializable {
     @Column(name = "data_vencimento", nullable = false)
     private LocalDate dataVencimento;
 
-    @Column(name = "data_pagamento", nullable = true)
+    @Column(name = "data_pagamento")
     private LocalDateTime dataPagamento;
 
     public Long getId() {
@@ -91,6 +91,19 @@ public class Lancamento implements Serializable {
 
     public void setDataPagamento(LocalDateTime dataPagamento) {
         this.dataPagamento = dataPagamento;
+    }
+
+    @Override
+    public String toString() {
+        return "Lancamento{" +
+                "id=" + id +
+                ", pessoa=" + pessoa +
+                ", descricao='" + descricao + '\'' +
+                ", valor=" + valor +
+                ", tipoLancamento=" + tipoLancamento +
+                ", dataVencimento=" + dataVencimento +
+                ", dataPagamento=" + dataPagamento +
+                '}';
     }
 
     @Override
