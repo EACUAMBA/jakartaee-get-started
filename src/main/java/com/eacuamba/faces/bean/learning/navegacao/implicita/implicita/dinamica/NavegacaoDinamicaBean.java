@@ -1,4 +1,4 @@
-package com.eacuamba.faces.bean.learning.navegacao.implicita.dinamica;
+package com.eacuamba.faces.bean.learning.navegacao.implicita.implicita.dinamica;
 
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
