@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Calculadora</title>
+</h:head>
+<h:body>
+    <h:form id="form">
+        <h:messages showDetail="true" showSummary="true"/>
+
+        <h:inputText size="12" value="#{calculadoraDataBean.date}">
+            <f:convertDateTime type="localDate" pattern="dd-MM-yyyy" locale="pt_MZ"/>
+        </h:inputText>
+        <h:inputText size="12" value="#{calculadoraDataBean.dias}" label="Dias">
+            <f:convertNumber integerOnly="true" locale="pt_MZ"/>
+        </h:inputText>
+        =
+        <h:outputText value="#{calculadoraDataBean.resultado}">
+            <f:convertDateTime  locale="pt_MZ" type="localDate" dateStyle="full"/>
+        </h:outputText>
+        <br/>
+        <h:commandButton action="#{calculadoraDataBean.adicionar}" value="Somar"/>
+    </h:form>
+</h:body>
+</html>
