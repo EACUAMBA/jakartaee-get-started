@@ -17,13 +17,14 @@ public class PessoaController {
 
     @POST
     public Response createPessoa(Pessoa pessoa){
-        this.pessoaRepository.create(pessoa);
+        this.pessoaRepository.save(pessoa);
         return Response.ok(pessoa).build();
     }
 
     @GET
     public List<Pessoa> getAllPessoa(){
-        return this.pessoaRepository.findAll().orElseThrow(()->new NotFoundException("Sem pessoas no banco de dados"));
+
+        return this.pessoaRepository.findAll();
     }
 
     @GET
