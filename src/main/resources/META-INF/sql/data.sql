@@ -1,3 +1,20 @@
+
+---Pessoas
+INSERT INTO dev_schema.pessoa (id, nome) VALUES (1, 'Mozal');
+INSERT INTO dev_schema.pessoa (id, nome) VALUES (2, 'Tmcel');
+INSERT INTO dev_schema.pessoa (id, nome) VALUES (3, 'Vodacom');
+INSERT INTO dev_schema.pessoa (id, nome) VALUES (4, 'Movitel');
+
+--- Lancamentos
+INSERT INTO dev_schema.lancamento (id, data_pagamento, data_vencimento, descricao, tipolancamento, valor, pessoa_id) VALUES (nextval('dev_schema.lancamento_id_seq'), null, '12-31-2021', 'Pagamento de 250 lingotes de aço.', 'RECEITA', '3000000.00', 1);
+
+INSERT INTO dev_schema.lancamento (id, data_pagamento, data_vencimento, descricao, tipolancamento, valor, pessoa_id) VALUES (nextval('dev_schema.lancamento_id_seq'), null, '01-20-2022', '1 tonelada de cabos de fibra classe 10.', 'RECEITA', '10000000.00', 2);
+
+INSERT INTO dev_schema.lancamento (id, data_pagamento, data_vencimento, descricao, tipolancamento, valor, pessoa_id) VALUES (nextval('dev_schema.lancamento_id_seq'), null, '03-20-2022', 'Pagamento de 500GB de internet.', 'DESPESA', '75000.00', 3);
+
+INSERT INTO dev_schema.lancamento (id, data_pagamento, data_vencimento, descricao, tipolancamento, valor, pessoa_id) VALUES (nextval('dev_schema.lancamento_id_seq'), null, '12-30-2021', 'Pagamento 200 min de chamadas internacionais.', 'DESPESA', '50000.00', 4);
+
+--- Paises
 INSERT INTO jakartaee_get_started.dev_schema.pais (id, name, iso) VALUES (nextval('dev_schema.pais_id_seq'),'Afghanistan', 'AF');
 INSERT INTO dev_schema.pais (id, name, iso) VALUES (nextval('dev_schema.pais_id_seq'),'Albania', 'AL');
 INSERT INTO dev_schema.pais (id, name, iso) VALUES (nextval('dev_schema.pais_id_seq'),'Algeria', 'DZ');
