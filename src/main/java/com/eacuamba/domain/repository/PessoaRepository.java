@@ -5,11 +5,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-public class PessoaRepository extends BaseRepository<Pessoa, Long> {
+public class PessoaRepository extends BaseRepository<Pessoa, Long> implements Serializable {
 
     public PessoaRepository() {
         this._class = Pessoa.class;
