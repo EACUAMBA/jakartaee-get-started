@@ -2,6 +2,10 @@ package com.eacuamba.domain.model;
 
 import com.eacuamba.domain.model.enumeration.TipoLancamento;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,27 +14,34 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "lancamento", schema = "dev_schema")
+@Table(name = "lancamento", schema = "public")
 public class Lancamento implements Serializable {
     @Id
     @SequenceGenerator(name = "lancamento_id", sequenceName = "lancamento_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lancamento_id")
     private Long id;
 
+    @NotNull(message = "O campo pessoa não pode estar vazio.")
     @ManyToOne(optional = false)
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
+    @NotEmpty
+    @Size(max = 80)
     @Column(length = 80, nullable = false)
     private String descricao;
 
+    @NotNull
+    @DecimalMin("0")
     @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal valor;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TipoLancamento tipoLancamento;
 
+    @NotNull
     @Column(name = "data_vencimento", nullable = false)
     private LocalDate dataVencimento;
 
