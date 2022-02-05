@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+    <f:metadata>
+        <f:viewAction action="#{registoLancamentoBean.prepararCadastro}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">Cadastro de Lançamento</ui:define>
+    <ui:define name="corpo">
+        <h1>Cadastro de Lançamento</h1>
+        <h:form id="frm">
+            <h:messages showDetail="true" showSummary="true"/>
+
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Tipo de Lançamento"/>
+                <h:selectOneRadio value="#{registoLancamentoBean.lancamento.tipoLancamento}" label="Tipo de Lançamento">
+                    <f:selectItems value="#{registoLancamentoBean.tiposDeLancamento}" var="tipoLancamento"
+                                   itemValue="#{tipoLancamento}"/>
+                </h:selectOneRadio>
+
+
+                <h:outputLabel value="Pessoa"/>
+                <h:selectOneMenu value="#{registoLancamentoBean.lancamento.pessoa}" label="Pessoa">
+                    <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+                    <f:selectItems value="#{registoLancamentoBean.pessoas}" var="pessoa" itemLabel="#{pessoa.nome}"/>
+                </h:selectOneMenu>
+
+                <h:outputLabel value="Descrição"/>
+                <h:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}"/>
+
+                <h:outputLabel value="Valor"/>
+                <h:inputText size="12" value="#{registoLancamentoBean.lancamento.valor}" label="Valor">
+                    <f:convertNumber locale="pt_MZ" maxFractionDigits="2" minFractionDigits="2"/>
+                </h:inputText>
+
+                <h:outputLabel value="Data de Vencimento"/>
+                <h:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento"
+                             >
+                    <f:convertDateTime locale="pt_MZ" timeZone="Africa/Central" pattern="dd-MM-yyyy" type="localDate"/>
+                </h:inputText>
+
+                <h:outputLabel value="Data de Pagamento"/>
+                <h:inputText value="#{registoLancamentoBean.lancamento.dataPagamento}" label="Data de pagamento">
+                    <f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="localDateTime" timeZone="Africa/Central"/>
+                </h:inputText>
+
+                <h:outputLabel/>
+                <h:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
