@@ -6,6 +6,8 @@
 package com.eacuamba.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -22,6 +24,8 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoa_id")
     private Long id;
 
+    @NotEmpty
+    @Size(max = 60)
     @Column(nullable = false, length = 150)
     private String nome;
 
