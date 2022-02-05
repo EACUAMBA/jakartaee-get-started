@@ -1,19 +1,13 @@
 package com.eacuamba.faces.converter;
 
-import com.eacuamba.domain.exceptions.NegocioException;
 import com.eacuamba.domain.model.Pessoa;
-import com.eacuamba.domain.repository.PessoaRepository;
 import com.eacuamba.domain.services.PessoaService;
-import com.eacuamba.utils.JpaUtil;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.spi.CDI;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.component.UIComponent;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.convert.Converter;
 import jakarta.faces.convert.FacesConverter;
-import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
 
 import java.io.Serializable;
 
