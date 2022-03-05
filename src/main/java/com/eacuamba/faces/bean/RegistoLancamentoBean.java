@@ -43,7 +43,7 @@ public class RegistoLancamentoBean implements Serializable {
         } catch (NegocioException e) {
             facesContext.addMessage(
                     null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR,e.getMessage(),"Lançamento feito com sucesso!"));
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,e.getMessage(),"Lançamento feito sem sucesso!"));
         }
     }
 

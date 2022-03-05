@@ -1,6 +1,7 @@
 package com.eacuamba.domain.model;
 
 import com.eacuamba.domain.model.enumeration.TipoLancamento;
+import com.eacuamba.domain.validation.DecimalPositivo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
@@ -26,13 +27,12 @@ public class Lancamento implements Serializable {
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
-    @NotEmpty
+    @NotEmpty()
     @Size(max = 80)
     @Column(length = 80, nullable = false)
     private String descricao;
 
-    @NotNull
-    @DecimalMin("0")
+    @DecimalPositivo
     @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal valor;
 
