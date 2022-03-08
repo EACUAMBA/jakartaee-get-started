@@ -31,7 +31,7 @@
                 </h:selectOneMenu>
 
                 <h:outputLabel value="Descrição"/>
-                <h:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}"/>
+                <h:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}" valueChangeListener="#{registoLancamentoBean.descricaoModificada}" immediate="true"/>
 
                 <h:outputLabel value="Valor"/>
                 <h:inputText size="12" value="#{registoLancamentoBean.lancamento.valor}" label="Valor">
@@ -50,7 +50,7 @@
                 </h:inputText>
 
                 <h:outputLabel/>
-                <h:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}"/>
+                <h:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}" actionListener="#{registoLancamentoBean.mostraLogSalvamento}"/>
             </h:panelGrid>
         </h:form>
     </ui:define>
