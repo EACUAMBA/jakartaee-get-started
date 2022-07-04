@@ -1,7 +1,7 @@
-package com.eacuamba.faces.bean;
+package com.eacuamba.project.jsf.beans;
 
-import com.eacuamba.domain.model.Lancamento;
-import com.eacuamba.domain.repository.LancamentoRepository;
+import com.eacuamba.project.domain.model.Lancamento;
+import com.eacuamba.project.domain.repository.LancamentoRepository;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;

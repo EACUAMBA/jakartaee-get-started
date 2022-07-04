@@ -1,7 +1,5 @@
-package com.eacuamba.domain.repository;
+package com.eacuamba.project.domain.repository;
 
-import com.eacuamba.domain.model.Pessoa;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -12,7 +10,7 @@ import java.util.Optional;
 
 
 public abstract class BaseRepository <R, T> implements Serializable {
-    @PersistenceContext(unitName = "jakartaee_get_started")
+    @PersistenceContext(unitName = "java_ee_7_com_jsf_primefaces_e_cdi_2_edicao_algaworks")
     protected EntityManager entityManager;
     protected Class<R> _class;
 

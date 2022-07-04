@@ -1,7 +1,7 @@
 package com.eacuamba.endpoint.controller;
 
-import com.eacuamba.domain.model.Pessoa;
-import com.eacuamba.domain.repository.PessoaRepository;
+import com.eacuamba.project.domain.model.Pessoa;
+import com.eacuamba.project.domain.repository.PessoaRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;

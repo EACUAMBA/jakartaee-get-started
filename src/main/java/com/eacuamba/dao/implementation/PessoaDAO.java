@@ -6,7 +6,8 @@
 package com.eacuamba.dao.implementation;
 
 import com.eacuamba.dao.GenericDAO;
-import com.eacuamba.domain.model.Pessoa;
+
+import com.eacuamba.project.domain.model.Pessoa;
 import jakarta.enterprise.context.ApplicationScoped;
 
 /**

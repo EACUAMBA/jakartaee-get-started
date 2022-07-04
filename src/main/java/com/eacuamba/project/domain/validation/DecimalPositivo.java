@@ -1,4 +1,4 @@
-package com.eacuamba.domain.validation;
+package com.eacuamba.project.domain.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.OverridesAttribute;

@@ -1,4 +1,4 @@
-package com.eacuamba.domain.exceptions;
+package com.eacuamba.project.domain.exceptions;
 
 public class NegocioException extends Exception {
     public NegocioException(String message){

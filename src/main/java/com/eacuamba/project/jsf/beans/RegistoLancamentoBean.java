@@ -1,23 +1,24 @@
-package com.eacuamba.faces.bean;
+package com.eacuamba.project.jsf.beans;
 
-import com.eacuamba.domain.exceptions.NegocioException;
-import com.eacuamba.domain.model.Lancamento;
-import com.eacuamba.domain.model.Pessoa;
-import com.eacuamba.domain.model.enumeration.TipoLancamento;
-import com.eacuamba.domain.services.LancamentoService;
-import com.eacuamba.domain.services.PessoaService;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.enterprise.context.SessionScoped;
+
+import com.eacuamba.project.domain.exceptions.NegocioException;
+import com.eacuamba.project.domain.model.Lancamento;
+import com.eacuamba.project.domain.model.Pessoa;
+import com.eacuamba.project.domain.model.enumeration.TipoLancamento;
+import com.eacuamba.project.domain.services.LancamentoService;
+import com.eacuamba.project.domain.services.PessoaService;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.ActionEvent;
+import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.event.ValueChangeEvent;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Named
@@ -78,5 +79,10 @@ public class RegistoLancamentoBean implements Serializable {
         this.lancamento = lancamento;
     }
 
+    public void dataVencimentoAlterada(AjaxBehaviorEvent event){
+        if(this.lancamento.getDataPagamento() == null){
+            this.lancamento.setDataPagamento(LocalDateTime.of(this.lancamento.getDataVencimento(), LocalTime.MIN));
+        }
+    }
 
 }

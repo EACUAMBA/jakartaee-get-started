@@ -1,7 +1,7 @@
-package com.eacuamba.domain.model;
+package com.eacuamba.project.domain.model;
 
-import com.eacuamba.domain.model.enumeration.TipoLancamento;
-import com.eacuamba.domain.validation.DecimalPositivo;
+import com.eacuamba.project.domain.model.enumeration.TipoLancamento;
+import com.eacuamba.project.domain.validation.DecimalPositivo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;

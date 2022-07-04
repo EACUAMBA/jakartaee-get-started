@@ -1,6 +1,6 @@
-package com.eacuamba.domain.repository;
+package com.eacuamba.project.domain.repository;
 
-import com.eacuamba.domain.model.Pessoa;
+import com.eacuamba.project.domain.model.Pessoa;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;

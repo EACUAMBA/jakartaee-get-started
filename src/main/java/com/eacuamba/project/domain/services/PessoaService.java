@@ -1,8 +1,9 @@
-package com.eacuamba.domain.services;
+package com.eacuamba.project.domain.services;
 
-import com.eacuamba.domain.exceptions.NegocioException;
-import com.eacuamba.domain.model.Pessoa;
-import com.eacuamba.domain.repository.PessoaRepository;
+
+import com.eacuamba.project.domain.exceptions.NegocioException;
+import com.eacuamba.project.domain.model.Pessoa;
+import com.eacuamba.project.domain.repository.PessoaRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 

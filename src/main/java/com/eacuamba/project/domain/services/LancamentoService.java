@@ -1,8 +1,8 @@
-package com.eacuamba.domain.services;
+package com.eacuamba.project.domain.services;
 
-import com.eacuamba.domain.exceptions.NegocioException;
-import com.eacuamba.domain.model.Lancamento;
-import com.eacuamba.domain.repository.LancamentoRepository;
+import com.eacuamba.project.domain.exceptions.NegocioException;
+import com.eacuamba.project.domain.model.Lancamento;
+import com.eacuamba.project.domain.repository.LancamentoRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
@@ -16,7 +16,7 @@ public class LancamentoService {
     @Inject
     private LancamentoRepository lancamentoRepository;
 
-    public Lancamento salvar(Lancamento lancamento) throws NegocioException{
+    public Lancamento salvar(Lancamento lancamento) throws NegocioException {
         if(lancamento != null && lancamento.getDataPagamento()!= null && lancamento.getDataPagamento().isAfter(LocalDateTime.now())) {
             throw new NegocioException("A data de pagamento não pode ser uma data futura.");
         }

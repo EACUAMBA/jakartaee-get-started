@@ -7,29 +7,35 @@
 <h:head>
     <title>Olá JSF</title>
     <h:outputStylesheet>
-        body{
+        body {
             padding: 0;
             margin: 0;
             height: 100vh;
-            display: flex;
-            align-content: center;
-            align-items: center;
-            justify-content: center;
-            justify-items: center;
 
             background: crimson;
             color: white;
         }
 
-        h1{
-            font-size: 3rem;
+        h1 {
+            font-size: 2rem;
             font-weight: bolder;
             text-transform: uppercase;
+        }
+        div{
+            margin: 32px;
+            display: flex;
+            flex-direction: column;
+gap: 8px;
         }
     </h:outputStylesheet>
 </h:head>
 
 <h:body>
-        <h1>Olá bem vindo ao meu projecto de aprendizagem de JSF.</h1>
+    <h1>Olá bem vindo ao meu projecto de aprendizagem de JSF.</h1>
+    <div>
+        <h1>Lançamentos</h1>
+        <h:commandButton action="/project/lancamento/cadastro-lancamento" value="Cadastrar lançamentos"/>
+        <h:commandButton action="project/lancamento/lancamentos" value="Listar"/>
+    </div>
 </h:body>
 </html>

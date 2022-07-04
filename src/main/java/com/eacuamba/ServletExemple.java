@@ -7,10 +7,7 @@ package com.eacuamba;
 
 import com.eacuamba.config.StartupConfig;
 import com.eacuamba.config.resource_bundle.ResourceBundleWraper;
-import com.eacuamba.dao.implementation.PessoaDAO;
-import com.eacuamba.domain.model.Lancamento;
-import com.eacuamba.domain.model.Pessoa;
-import com.eacuamba.domain.repository.LancamentoRepository;
+import com.eacuamba.project.domain.repository.LancamentoRepository;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

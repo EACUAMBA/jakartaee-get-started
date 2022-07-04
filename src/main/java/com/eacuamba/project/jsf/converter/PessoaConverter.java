@@ -1,7 +1,7 @@
-package com.eacuamba.faces.converter;
+package com.eacuamba.project.jsf.converter;
 
-import com.eacuamba.domain.model.Pessoa;
-import com.eacuamba.domain.services.PessoaService;
+import com.eacuamba.project.domain.model.Pessoa;
+import com.eacuamba.project.domain.services.PessoaService;
 import jakarta.enterprise.inject.spi.CDI;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.component.UIComponent;

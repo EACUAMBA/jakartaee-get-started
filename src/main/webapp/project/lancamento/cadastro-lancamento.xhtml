@@ -5,12 +5,16 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<!--Estou chamando o template que criei-->
 <ui:composition template="/WEB-INF/template/template.xhtml">
     <f:metadata>
         <f:viewAction action="#{registoLancamentoBean.prepararCadastro}"/>
     </f:metadata>
 
+<!--    Definindo o titulo no template.-->
     <ui:define name="titulo">Cadastro de Lançamento</ui:define>
+
+<!--    Definindo o corpo no template -->
     <ui:define name="corpo">
         <h1>Cadastro de Lançamento</h1>
         <h:form id="frm">
@@ -39,18 +43,20 @@
                 </h:inputText>
 
                 <h:outputLabel value="Data de Vencimento"/>
-                <h:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento"
-                             >
+                <h:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento">
+                    <f:ajax render="@this dataPagamento" execute="@this dataPagamento" listener="#{registoLancamentoBean.dataVencimentoAlterada}"/>
                     <f:convertDateTime locale="pt_MZ" timeZone="Africa/Central" pattern="dd-MM-yyyy" type="localDate"/>
                 </h:inputText>
 
                 <h:outputLabel value="Data de Pagamento"/>
-                <h:inputText value="#{registoLancamentoBean.lancamento.dataPagamento}" label="Data de pagamento">
+                <h:inputText id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}" label="Data de pagamento">
                     <f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="localDateTime" timeZone="Africa/Central"/>
                 </h:inputText>
 
                 <h:outputLabel/>
-                <h:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}" actionListener="#{registoLancamentoBean.mostraLogSalvamento}"/>
+                <h:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}" actionListener="#{registoLancamentoBean.mostraLogSalvamento}">
+                    <f:ajax execute="@form" render="@form" />
+                </h:commandButton>
             </h:panelGrid>
         </h:form>
     </ui:define>
