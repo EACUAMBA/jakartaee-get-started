@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
 <!--Estou chamando o template que criei-->
 <ui:composition template="/WEB-INF/template/template.xhtml">
     <f:metadata>
@@ -21,42 +23,42 @@
             <h:messages showDetail="true" showSummary="true"/>
 
             <h:panelGrid columns="2">
-                <h:outputLabel value="Tipo de Lançamento"/>
-                <h:selectOneRadio value="#{registoLancamentoBean.lancamento.tipoLancamento}" label="Tipo de Lançamento">
+                <p:outputLabel value="Tipo de Lançamento" for="tipoLancamentoSelectOneRadio"/>
+                <p:selectOneRadio id="tipoLancamentoSelectOneRadio" value="#{registoLancamentoBean.lancamento.tipoLancamento}" label="Tipo de Lançamento">
                     <f:selectItems value="#{registoLancamentoBean.tiposDeLancamento}" var="tipoLancamento"
                                    itemValue="#{tipoLancamento}"/>
-                </h:selectOneRadio>
+                </p:selectOneRadio>
 
 
-                <h:outputLabel value="Pessoa"/>
-                <h:selectOneMenu value="#{registoLancamentoBean.lancamento.pessoa}" label="Pessoa">
+                <p:outputLabel value="Pessoa"/>
+                <p:selectOneMenu value="#{registoLancamentoBean.lancamento.pessoa}" label="Pessoa">
                     <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
                     <f:selectItems value="#{registoLancamentoBean.pessoas}" var="pessoa" itemLabel="#{pessoa.nome}"/>
-                </h:selectOneMenu>
+                </p:selectOneMenu>
 
-                <h:outputLabel value="Descrição"/>
-                <h:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}" valueChangeListener="#{registoLancamentoBean.descricaoModificada}" immediate="true"/>
+                <p:outputLabel value="Descrição"/>
+                <p:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}" valueChangeListener="#{registoLancamentoBean.descricaoModificada}" immediate="true"/>
 
-                <h:outputLabel value="Valor"/>
-                <h:inputText size="12" value="#{registoLancamentoBean.lancamento.valor}" label="Valor">
+                <p:outputLabel value="Valor"/>
+                <p:inputText size="12" value="#{registoLancamentoBean.lancamento.valor}" label="Valor">
                     <f:convertNumber locale="pt_MZ" maxFractionDigits="2" minFractionDigits="2"/>
-                </h:inputText>
+                </p:inputText>
 
-                <h:outputLabel value="Data de Vencimento"/>
-                <h:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento">
+                <p:outputLabel value="Data de Vencimento"/>
+                <p:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento">
                     <f:ajax render="@this dataPagamento" execute="@this dataPagamento" listener="#{registoLancamentoBean.dataVencimentoAlterada}"/>
                     <f:convertDateTime locale="pt_MZ" timeZone="Africa/Central" pattern="dd-MM-yyyy" type="localDate"/>
-                </h:inputText>
+                </p:inputText>
 
-                <h:outputLabel value="Data de Pagamento"/>
-                <h:inputText id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}" label="Data de pagamento">
-                    <f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="localDateTime" timeZone="Africa/Central"/>
-                </h:inputText>
+                <p:outputLabel value="Data de Pagamento"/>
+                <p:inputText id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}" label="Data de pagamento">
+                    <f:convertDateTime pattern="dd-MM-yyyy Hp:mm:ss" type="localDateTime" timeZone="Africa/Central"/>
+                </p:inputText>
 
-                <h:outputLabel/>
-                <h:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}" actionListener="#{registoLancamentoBean.mostraLogSalvamento}">
+                <p:outputLabel/>
+                <p:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}" actionListener="#{registoLancamentoBean.mostraLogSalvamento}">
                     <f:ajax execute="@form" render="@form" />
-                </h:commandButton>
+                </p:commandButton>
             </h:panelGrid>
         </h:form>
     </ui:define>

@@ -12,7 +12,7 @@ import java.util.List;
 
 @ApplicationScoped
 public class PaisDao implements Serializable {
-    @PersistenceContext(unitName = "jakartaee_get_started")
+    @PersistenceContext(unitName = "java_ee_7_com_jsf_primefaces_e_cdi_2_edicao_algaworks")
     private EntityManager entityManager;
 
     public List<Pais> findAll(){
