@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>A propriedade event</title>
+    </h:head>
+
+    <h:body>
+        <h:form id="form">
+            <h:inputText value="#{_13_4_a_propriedade_listener.nome}">
+<!--                Com a propriedade event podemos definir o evento que queremos que seja o triguer para a renderização do componente apontado, neste caso quando a tecla faz o keyup o componente abaixo é renderizado com ajax.-->
+                <f:ajax event="keyup" render="nomeOutputLabel" listener="#{_13_4_a_propriedade_listener.transformar}"/>
+            </h:inputText>
+
+            <br/>
+
+            <h:outputLabel value="Olá #{_13_4_a_propriedade_listener.nome}" id="nomeOutputLabel"/>
+        </h:form>
+    </h:body>
+</html>
