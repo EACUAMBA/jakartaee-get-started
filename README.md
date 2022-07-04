@@ -13,5 +13,5 @@ Neste projecto usei o Jakarta EE 9, preferi usar a última versão logo.\
 
 ## Notas
 1. Imagem com os valores predefinidos possiveis para render e execute de um elemento ajax.
-   1. ![Imagem com os valores predefinidos possiveis para render e execute de um elemento ajax.](./images/13_7_palavras_chaves_para_render_e_execute.png)
-   *by **Edilson Alexandre Cuamba***
+   1. ![Imagem com os valores predefinidos possiveis para render e execute de um elemento ajax.](./images/13_7_palavras_chaves_para_render_e_execute.png)\
+*by **Edilson Alexandre Cuamba***
