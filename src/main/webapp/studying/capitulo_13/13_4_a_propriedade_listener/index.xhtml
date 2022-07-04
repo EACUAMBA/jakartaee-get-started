@@ -7,7 +7,7 @@
     <h:body>
         <h:form id="form">
             <h:inputText value="#{_13_4_a_propriedade_listener.nome}">
-<!--                Com a propriedade event podemos definir o evento que queremos que seja o triguer para a renderização do componente apontado, neste caso quando a tecla faz o keyup o componente abaixo é renderizado com ajax.-->
+<!--                Com a propriedade listener podemos passar um metodo semparametros que será executado assim que o evento for disparado.-->
                 <f:ajax event="keyup" render="nomeOutputLabel" listener="#{_13_4_a_propriedade_listener.transformar}"/>
             </h:inputText>
 
