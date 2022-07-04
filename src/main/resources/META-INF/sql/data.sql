@@ -15,7 +15,7 @@ INSERT INTO public.lancamento (id, data_pagamento, data_vencimento, descricao, t
 INSERT INTO public.lancamento (id, data_pagamento, data_vencimento, descricao, tipolancamento, valor, pessoa_id) VALUES (nextval('public.lancamento_id_seq'), null, '12-30-2021', 'Pagamento 200 min de chamadas internacionais.', 'DESPESA', '50000.00', 4);
 
 --- Paises
-INSERT INTO jakartaee_get_started.public.pais (id, name, iso) VALUES (nextval('public.pais_id_seq'),'Afghanistan', 'AF');
+INSERT INTO public.pais (id, name, iso) VALUES (nextval('public.pais_id_seq'),'Afghanistan', 'AF');
 INSERT INTO public.pais (id, name, iso) VALUES (nextval('public.pais_id_seq'),'Albania', 'AL');
 INSERT INTO public.pais (id, name, iso) VALUES (nextval('public.pais_id_seq'),'Algeria', 'DZ');
 INSERT INTO public.pais (id, name, iso) VALUES (nextval('public.pais_id_seq'),'American Samoa', 'AS');
