@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Multiplas renderizações</title>
+    </h:head>
+
+    <h:body>
+        <h:form id="form">
+            <h:inputText value="#{_13_5_renderizacoes_multiplas.nome}">
+<!--                Na propriedade render especifiquei os elementos/componentes que devem ser renderizados novamente, separei por espaço.-->
+                <f:ajax event="keyup" render="nomeOutputLabel contadorDeLetras" listener="#{_13_5_renderizacoes_multiplas.transformar}"/>
+            </h:inputText>
+
+            <br/>
+
+            <h:outputLabel value="Olá #{_13_5_renderizacoes_multiplas.nome}" id="nomeOutputLabel"/>
+
+            <br/>
+
+            <h:outputText id="contadorDeLetras" value="#{_13_5_renderizacoes_multiplas.quantidadeDeCaracteres} caracteres digitados."/>
+        </h:form>
+    </h:body>
+</html>
