@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+>
 
 <h:head>
     <title>Olá JSF</title>
@@ -34,8 +36,8 @@ gap: 8px;
     <h1>Olá bem vindo ao meu projecto de aprendizagem de JSF.</h1>
     <div>
         <h1>Lançamentos</h1>
-        <h:commandButton action="/project/lancamento/cadastro-lancamento" value="Cadastrar lançamentos"/>
-        <h:commandButton action="project/lancamento/lancamentos" value="Listar"/>
+        <p:commandButton action="project.lancamento.cadastro-lancamento" value="Cadastrar lançamentos"/>
+        <h:commandButton action="project.lancamento.lancamentos" value="Listar"/>
     </div>
 </h:body>
 </html>
