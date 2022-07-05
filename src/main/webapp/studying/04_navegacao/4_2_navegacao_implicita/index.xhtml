@@ -39,8 +39,9 @@
     <h:form styleClass="form">
         <p:outputLabel value="Acesse a página de olá mundo já."/>
 <!--        Para a navegação implicita funcionar deves colocar dentro de um formulário, um form. O action deve receber o caminho para o ficheiro, de forma absoluta.-->
+<!--        o faces-redirect=true, ira redirecionar a página para a nova página ao inves de encaminhar.-->
         <p:commandButton value="Página Hello World"
-                         action="/studying/04_navegacao/4_2_navegacao_implicita/hello-world"/>
+                         action="/studying/04_navegacao/4_2_navegacao_implicita/hello-world?faces-redirect=true"/>
     </h:form>
 </h:body>
 </html>
