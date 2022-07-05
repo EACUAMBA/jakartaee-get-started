@@ -1,7 +1,6 @@
-package com.eacuamba.studying.capitulo_13._13_6_processamento_parcial;
+package com.eacuamba.studying._13_ajax._13_6_processamento_parcial;
 
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.inject.Named;
 
 @Named(value = "_13_6_processamento_parcial") //Defini o nome que será usado para termos a instância deste bean, neste caso será meuBean.
