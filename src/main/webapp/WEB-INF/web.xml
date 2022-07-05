@@ -16,6 +16,12 @@
 <!--        <param-value>Production</param-value>-->
     </context-param>
 
+<!--    Serve para impedir o facelets de processar os comentários.-->
+    <context-param>
+        <param-name>facelets.SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
