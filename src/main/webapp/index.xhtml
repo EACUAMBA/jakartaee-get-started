@@ -33,11 +33,13 @@ gap: 8px;
 </h:head>
 
 <h:body>
-    <h1>Olá bem vindo ao meu projecto de aprendizagem de JSF.</h1>
-    <div>
-        <h1>Lançamentos</h1>
-        <p:commandButton action="project.lancamento.cadastro-lancamento" value="Cadastrar lançamentos"/>
-        <h:commandButton action="project.lancamento.lancamentos" value="Listar"/>
-    </div>
+    <h:form>
+        <h1>Olá bem vindo ao meu projecto de aprendizagem de JSF.</h1>
+        <div>
+            <h1>Lançamentos</h1>
+            <p:commandButton action="/project/lancamento/cadastro-lancamento?faces-redirect=true" value="Cadastrar lançamentos"/>
+            <h:commandButton action="/project/lancamento/lancamentos" value="Listar"/>
+        </div>
+    </h:form>
 </h:body>
 </html>
