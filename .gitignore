@@ -1,6 +1,7 @@
-target
-/target
-
-*.iml
+#Directories
 /.idea
-.idea
+/target
+/out
+
+#Files
+*.iml
