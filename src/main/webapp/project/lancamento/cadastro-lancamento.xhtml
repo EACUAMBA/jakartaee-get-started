@@ -13,51 +13,92 @@
         <f:viewAction action="#{registoLancamentoBean.prepararCadastro}"/>
     </f:metadata>
 
-<!--    Definindo o titulo no template.-->
+    <!--    Definindo o titulo no template.-->
     <ui:define name="titulo">Cadastro de Lançamento</ui:define>
 
-<!--    Definindo o corpo no template -->
+    <!--    Definindo o corpo no template -->
     <ui:define name="corpo">
         <h1>Cadastro de Lançamento</h1>
         <h:form id="frm">
             <h:messages showDetail="true" showSummary="true"/>
 
             <h:panelGrid columns="2">
-                <p:outputLabel value="Tipo de Lançamento" for="tipoLancamentoSelectOneRadio"/>
-                <p:selectOneRadio id="tipoLancamentoSelectOneRadio" value="#{registoLancamentoBean.lancamento.tipoLancamento}" label="Tipo de Lançamento">
-                    <f:selectItems value="#{registoLancamentoBean.tiposDeLancamento}" var="tipoLancamento"
-                                   itemValue="#{tipoLancamento}"/>
-                </p:selectOneRadio>
+                <p:outputLabel value="Tipo de Lançamento" for="tipoLancamentoSelectOneButton"/>
+                <!--                value defini onde o valor vai ficar quando a pessoa selecionar no bean.-->
+                <p:selectOneButton id="tipoLancamentoSelectOneButton"
+                                   value="#{registoLancamentoBean.lancamento.tipoLancamento}"
+                                   label="Tipo de Lançamento">
+                    <!--                    O value são os valores que o campo terá, o var é o nome da váriavel que cada item da lista terá, o itemValue é o valor que cada item do select terá, itemLabel será o nome que vai aparecer na tela para o utilizador identificarcada item do select-->
+                    <f:selectItems
+                            value="#{registoLancamentoBean.tiposDeLancamento}"
+                            var="tipoLancamento"
+                            itemLabel="#{tipoLancamento.designacao}"
+                            itemValue="#{tipoLancamento}"/>
+                </p:selectOneButton>
 
 
-                <p:outputLabel value="Pessoa"/>
-                <p:selectOneMenu value="#{registoLancamentoBean.lancamento.pessoa}" label="Pessoa">
-                    <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
-                    <f:selectItems value="#{registoLancamentoBean.pessoas}" var="pessoa" itemLabel="#{pessoa.nome}"/>
+                <p:outputLabel value="Pessoa" for="pessoa"/>
+                <!--                -->
+                <p:selectOneMenu id="pessoa"
+                                 value="#{registoLancamentoBean.lancamento.pessoa}"
+                                 label="Pessoa"
+                                 filter="true"
+                                 filterMatchMode="contains">
+                    <f:selectItem
+                            itemLabel="Selecione"
+                            noSelectionOption="true"/>
+                    <f:selectItems
+                            value="#{registoLancamentoBean.pessoas}"
+                            var="pessoa"
+                            itemLabel="#{pessoa.nome}"/>
                 </p:selectOneMenu>
 
                 <p:outputLabel value="Descrição"/>
-                <p:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}" valueChangeListener="#{registoLancamentoBean.descricaoModificada}" immediate="true"/>
+                <p:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}"
+                             valueChangeListener="#{registoLancamentoBean.descricaoModificada}" immediate="true"/>
 
                 <p:outputLabel value="Valor"/>
                 <p:inputText size="12" value="#{registoLancamentoBean.lancamento.valor}" label="Valor">
                     <f:convertNumber locale="pt_MZ" maxFractionDigits="2" minFractionDigits="2"/>
                 </p:inputText>
 
-                <p:outputLabel value="Data de Vencimento"/>
-                <p:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento">
-                    <f:ajax render="@this dataPagamento" execute="@this dataPagamento" listener="#{registoLancamentoBean.dataVencimentoAlterada}"/>
-                    <f:convertDateTime locale="pt_MZ" timeZone="Africa/Central" pattern="dd-MM-yyyy" type="localDate"/>
-                </p:inputText>
+                <p:outputLabel value="Data de vencimento" for="dataVencimento"/>
+                <p:calendar
+                        id="dataVencimento"
+                        size="12"
+                        pattern="dd/MM/yyyy"
+                        value="#{registoLancamentoBean.lancamento.dataVencimento}"
+                        navigator="true"
+                        yearRange="c-100:c"
+                >
+<!--                    Aqui usamos ajax, o event dizemos o evento que queremos capturar, o update é o componente que será actualizado, o processe é o componente que vamos pegar os dados nele, o listner define o metodo que sera chamado com o a captura do evento. -->
+                    <p:ajax
+                            event="dateSelect"
+                            update="@this dataPagamento"
+                            process="@this dataPagamento"
+                            listener="#{registoLancamentoBean.dataVencimentoAlterada}"
+                    />
+                    <p:ajax
+                            event="change"
+                            update="@this dataPagamento"
+                            process="@this dataPagamento"
+                            listener="#{registoLancamentoBean.dataVencimentoAlterada}"
+                    />
+                </p:calendar>
 
-                <p:outputLabel value="Data de Pagamento"/>
-                <p:inputText id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}" label="Data de pagamento">
-                    <f:convertDateTime pattern="dd-MM-yyyy Hp:mm:ss" type="localDateTime" timeZone="Africa/Central"/>
-                </p:inputText>
+                <p:outputLabel value="Data de Pagamento" for="dataPagamento"/>
+                <p:calendar
+                        id="dataPagamento"
+                        value="#{registoLancamentoBean.lancamento.dataPagamento}"
+                        label="Data de pagamento"
+                        pattern="dd/MM/yyyy"
+                >
+                </p:calendar>
 
                 <p:outputLabel/>
-                <p:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}" actionListener="#{registoLancamentoBean.mostraLogSalvamento}">
-                    <f:ajax execute="@form" render="@form" />
+                <p:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}"
+                                 actionListener="#{registoLancamentoBean.mostraLogSalvamento}">
+                    <f:ajax execute="@form" render="@form"/>
                 </p:commandButton>
             </h:panelGrid>
         </h:form>
