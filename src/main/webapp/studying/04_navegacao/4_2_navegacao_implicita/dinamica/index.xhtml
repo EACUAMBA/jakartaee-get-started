@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Navegação Implicita - Dinamica</title>
+</h:head>
+<h:form>
+    <h1>Bem vindo faça login para se cadastrar</h1>
+    <p:fieldset>
+        <p:outputLabel for="username" value="Nome de utilizador"/>
+        <p:inputText value="#{loginBean.username}"  id="username"/>
+    </p:fieldset>
+
+    <p:fieldset>
+        <p:outputLabel for="password" value="Senha do utilizador"/>
+        <p:inputText value="#{loginBean.password}"  id="password"/>
+    </p:fieldset>
+
+    <p:messages showDetail="true" showSummary="true" />
+    <p:commandButton action="#{loginBean.autenticar}" value="Autenticar-me"/>
+</h:form>
+</html>

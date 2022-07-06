@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      class="html"
+>
+<h:head>
+    <title>Navegação Implicita</title>
+
+    <h:outputStylesheet>
+        .html{
+            height: 100%;
+        }
+        .body {
+            height: 100%;
+
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+
+            background-color: ghostwhite;
+            padding: 0;
+            margin: 0;
+        }
+        .form{
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+        }
+    </h:outputStylesheet>
+</h:head>
+<h:body styleClass="body">
+    <h:form styleClass="form">
+        <p:outputLabel value="Acesse a página de olá mundo já."/>
+<!--        Para a navegação implicita funcionar deves colocar dentro de um formulário, um form. O action deve receber o caminho para o ficheiro, de forma absoluta.-->
+<!--        o faces-redirect=true, ira redirecionar a página para a nova página ao inves de encaminhar.-->
+        <p:commandButton value="Página Hello World"
+                         action="/studying/04_navegacao/4_2_navegacao_implicita/hello-world?faces-redirect=true"/>
+    </h:form>
+</h:body>
+</html>
