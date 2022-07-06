@@ -5,6 +5,20 @@
         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd"
         version="3.0"
 >
+<!--    Declaração de uma navegação explicita, aqui vamos definir a rota de onde até onde, está pratica não é boa.-->
+    <navigation-rule>
+<!--        De onde vem o pedido para entrar nesta view que declaramos. Podemos deixar um * (asteristico) para mostrar que pode vir de qualquer lugar.-->
+        <from-view-id>/studying/04_navegacao/4_3_navegacao_explicita/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>resultados-explicito</from-outcome>
+            <to-view-id>/studying/04_navegacao/4_3_navegacao_explicita/resultados.xhtml</to-view-id>
+<!--            Adicionamos o redirect para ele redirecionar ao invés de forward.-->
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
     <!--    • @NoneScoped: o bean será instanciado a cada vez que for referenciado.-->
     <!--    • @RequestScoped (padrão): tem vida curta, começando quando é-->
     <!--    referenciado em uma única requisição HTTP e terminando quando a-->
@@ -24,16 +38,6 @@
         <managed-bean-class>com.eacuamba.faces.bean.CumprimentaBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
-
-    <navigation-rule>
-        <from-view-id>/learning/navegacao/explicita/index.xhtml</from-view-id>
-<!--        <from-view-id>/learning/navegacao/explicita/*</from-view-id> Usando um wildcard para selecionar todos os elementos da pasta-->
-        <navigation-case>
-            <from-outcome>cumprimenta</from-outcome>
-            <to-view-id>/learning/cumprimenta.xhtml</to-view-id>
-<!--            <redirect/> Inclua isto para redirecionar-->
-        </navigation-case>
-    </navigation-rule>
 
     <application>
         <locale-config>
