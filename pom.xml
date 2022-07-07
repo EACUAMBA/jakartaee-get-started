@@ -20,7 +20,13 @@
 
 
     <dependencies>
-<!--        Primeflex para disposição e estrutura.-->
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>4.0-M16</version>
+        </dependency>
+
+        <!--        Primeflex para disposição e estrutura.-->
         <dependency>
             <groupId>org.webjars.npm</groupId>
             <artifactId>primeflex</artifactId>
