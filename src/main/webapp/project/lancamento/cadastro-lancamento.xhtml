@@ -6,10 +6,12 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
 >
 <!--Estou chamando o template que criei-->
 <ui:composition template="/WEB-INF/template/template.xhtml">
     <f:metadata>
+        <o:viewParam name="id" value="#{registoLancamentoBean.lancamento}"/>
         <f:viewAction action="#{registoLancamentoBean.prepararCadastro}"/>
     </f:metadata>
 
