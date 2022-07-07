@@ -1,4 +1,4 @@
-# Java EE 7 com JSF, PrimeFaces e CDI por Thiago Faria
+# Java EE 7 com JSF, PrimeFaces e CDI por Thiago Faria (FINISHED)
 ![Capa  do livro](./aux-data/book-1.png)\
 Meus apontamentos feitos seguindo o livro com o titulo acima citado.
 Neste projecto usei o Jakarta EE 9, preferi usar a última versão logo.\
