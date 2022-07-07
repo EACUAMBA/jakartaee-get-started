@@ -31,4 +31,8 @@ public class LancamentoService {
     public List<String> findAllDescricaoLIKE(String descricao){
         return this.lancamentoRepository.findAllDescricaoLIKE(descricao);
     }
+
+    public Optional<Lancamento> findById(Long id){
+        return this.lancamentoRepository.findById(id);
+    }
 }
