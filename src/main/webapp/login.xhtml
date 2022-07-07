@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Olá JSF</title>
+    <h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css"/>
+
+</h:head>
+
+<h:body>
+    <div id="login-dialog">
+        <h1>Login</h1>
+        <h:form id="form">
+<p:messages autoUpdate="true"/>
+            <h:panelGrid columns="2" styleClass="p-d-flex p-flex-column">
+                <p:outputLabel value="Nome de Utilizador" for="form"/>
+                <p:inputText id="username" size="60" value="#{loginBean.username}"/>
+
+                <p:outputLabel value="Senha" for="form"/>
+                <p:inputText id="password" size="60" value="#{loginBean.password}"/>
+
+                <p:outputLabel />
+                <p:commandButton value="Autenticar" action="#{loginBean.autenticar}"/>
+            </h:panelGrid>
+        </h:form>
+    </div>
+</h:body>
+</html>
