@@ -13,18 +13,20 @@
         <f:viewAction action="#{registoLancamentoBean.prepararCadastro}"/>
     </f:metadata>
 
-<!--    Definindo o titulo no template.-->
+    <!--    Definindo o titulo no template.-->
     <ui:define name="titulo">Cadastro de Lançamento</ui:define>
 
-<!--    Definindo o corpo no template -->
+    <!--    Definindo o corpo no template -->
     <ui:define name="corpo">
         <h1>Cadastro de Lançamento</h1>
         <h:form id="frm">
-            <h:messages showDetail="true" showSummary="true"/>
+<!--            ncluímos o atributo autoUpdate com valor true para o componente ser atualizado automaticamente quando houver uma requisição Ajax, sem que seja necessário listar o id do componente de mensagem no atributo updatede <p:ajax>-->
+            <p:messages showDetail="true" showSummary="true" autoUpdate="true"/>
 
             <h:panelGrid columns="2">
                 <p:outputLabel value="Tipo de Lançamento" for="tipoLancamentoSelectOneRadio"/>
-                <p:selectOneRadio id="tipoLancamentoSelectOneRadio" value="#{registoLancamentoBean.lancamento.tipoLancamento}" label="Tipo de Lançamento">
+                <p:selectOneRadio id="tipoLancamentoSelectOneRadio"
+                                  value="#{registoLancamentoBean.lancamento.tipoLancamento}" label="Tipo de Lançamento">
                     <f:selectItems value="#{registoLancamentoBean.tiposDeLancamento}" var="tipoLancamento"
                                    itemValue="#{tipoLancamento}"/>
                 </p:selectOneRadio>
@@ -37,7 +39,11 @@
                 </p:selectOneMenu>
 
                 <p:outputLabel value="Descrição"/>
-                <p:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}" valueChangeListener="#{registoLancamentoBean.descricaoModificada}" immediate="true"/>
+                <p:autoComplete
+                        size="60"
+                        label="Descrição"
+                        value="#{registoLancamentoBean.lancamento.descricao}"
+                        completeMethod="#{registoLancamentoBean.pesquisarDescricoes}"/>
 
                 <p:outputLabel value="Valor"/>
                 <p:inputText size="12" value="#{registoLancamentoBean.lancamento.valor}" label="Valor">
@@ -46,18 +52,22 @@
 
                 <p:outputLabel value="Data de Vencimento"/>
                 <p:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento">
-                    <f:ajax render="@this dataPagamento" execute="@this dataPagamento" listener="#{registoLancamentoBean.dataVencimentoAlterada}"/>
+                    <f:ajax render="@this dataPagamento" execute="@this dataPagamento"
+                            listener="#{registoLancamentoBean.dataVencimentoAlterada}"/>
                     <f:convertDateTime locale="pt_MZ" timeZone="Africa/Central" pattern="dd-MM-yyyy" type="localDate"/>
                 </p:inputText>
 
                 <p:outputLabel value="Data de Pagamento"/>
-                <p:inputText id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}" label="Data de pagamento">
+                <p:inputText id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}"
+                             label="Data de pagamento">
                     <f:convertDateTime pattern="dd-MM-yyyy Hp:mm:ss" type="localDateTime" timeZone="Africa/Central"/>
                 </p:inputText>
 
                 <p:outputLabel/>
-                <p:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}" actionListener="#{registoLancamentoBean.mostraLogSalvamento}">
-                    <f:ajax execute="@form" render="@form" />
+                <p:commandButton value="Salvar"
+                                 action="#{registoLancamentoBean.salvar}"
+                                 icon="ui-icon-disk"
+                                 update="@form">
                 </p:commandButton>
             </h:panelGrid>
         </h:form>
