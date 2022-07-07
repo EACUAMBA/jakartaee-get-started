@@ -34,6 +34,7 @@ public class RegistoLancamentoBean implements Serializable {
     private PessoaService pessoaService;
     private List<Pessoa> pessoaList;
     private Lancamento lancamento = new Lancamento();
+    private Lancamento lancamentoSelecionado;
 
     public void prepararCadastro(){
         this.pessoaList = this.pessoaService.buscarTodasPessoas();
@@ -99,12 +100,16 @@ public class RegistoLancamentoBean implements Serializable {
     }
 
     public void delete(Lancamento lancamento) throws NegocioException{
+        FacesContext facesContext = FacesContext.getCurrentInstance();
 
-        if(Objects.nonNull(lancamento.getDataPagamento())){
-            throw new NegocioException("Não é possível excluir um lançamento pago!");
+        try{
+            this.lancamentoService.delete(this.lancamentoSelecionado.getId());
+            this.prepararCadastro();
+
+            facesContext.addMessage(null, new FacesMessage("Lançamento excluido com sucesso!"));
+        }catch (NegocioException e){
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, e.getMessage(), e.getMessage());
         }
-
-        this.lancamentoRepository.delete(lancamento.getId());
     }
 
 

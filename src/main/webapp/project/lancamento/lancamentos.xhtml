@@ -13,6 +13,8 @@
         <h1>Consulta de Lançamentos</h1>
 
         <h:form id="form">
+            <p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
+
             <p:dataTable value="#{lancamentoBean.lancamentos}" var="lancamento" border="1" cellspacing="0" cellpadding="2" paginator="true" rows="5" paginatorPosition="bottom">
                 <p:column headerText="Pessoa" sortBy="#{lancamento.pessoa.nome}">
                     <h:outputText value="#{lancamento.pessoa.nome}"/>
@@ -40,6 +42,16 @@
 
                 <p:column headerText="Data de Pagamento" styleClass="text-center" sortBy="#{lancamento.dataPagamento}">
                     <h:outputText value="#{lancamento.dataPagamento}"/>
+                </p:column>
+
+                <p:column>
+                    <p:button icon="ui-icon-pencil" title="Editar" outcome="/project/lancamento/cadastro-lancamento">
+                        <f:param name="id" value="#{lancamento.id}"/>
+                    </p:button>
+
+                    <p:button icon="ui-icon-pencil" title="Excluit" outcome="/project/lancamento/cadastro-lancamento">
+                        <f:setPropertyActionListener value="#{lancamento}" target="#{lancamentoBean.lancamentoSelecionado}"/>
+                    </p:button>
                 </p:column>
 
             </p:dataTable>
