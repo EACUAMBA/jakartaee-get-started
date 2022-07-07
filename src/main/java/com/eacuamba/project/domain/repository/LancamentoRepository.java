@@ -1,5 +1,6 @@
 package com.eacuamba.project.domain.repository;
 
+import com.eacuamba.project.domain.model.Lancamento;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.TypedQuery;
 
@@ -13,11 +14,11 @@ public class LancamentoRepository extends BaseRepository<com.eacuamba.project.do
         this._class = com.eacuamba.project.domain.model.Lancamento.class;
 }
 
-    public List<com.eacuamba.project.domain.model.Lancamento> findAll(){
+    public List<Lancamento> findAll(){
         return this.entityManager.createQuery("SELECT l FROM Lancamento l join fetch l.pessoa", com.eacuamba.project.domain.model.Lancamento.class).getResultList();
     }
 
-    public Optional<com.eacuamba.project.domain.model.Lancamento> findById(Long id){
+    public Optional<Lancamento> findById(Long id){
         return Optional.of(this.entityManager.find(com.eacuamba.project.domain.model.Lancamento.class, id));
     }
 
@@ -25,6 +26,11 @@ public class LancamentoRepository extends BaseRepository<com.eacuamba.project.do
         TypedQuery<String> descricaoTypedQuery = this.entityManager.createQuery("SELECT DISTINCT l.descricao FROM Lancamento l WHERE UPPER(l.descricao) LIKE UPPER(:descricao) ", String.class);
         descricaoTypedQuery.setParameter("descricao", text);
         return descricaoTypedQuery.getResultList();
+    }
+
+    public void delete(Long id){
+        this.findById(id).ifPresent((l)->this.entityManager.remove(l));
+
     }
 
 }
