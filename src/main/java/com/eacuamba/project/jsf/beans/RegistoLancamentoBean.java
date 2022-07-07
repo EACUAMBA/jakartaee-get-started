@@ -85,4 +85,8 @@ public class RegistoLancamentoBean implements Serializable {
         }
     }
 
+    public List<String> pesquisarDescricoes(String texto){
+        return this.lancamentoService.findAllDescricaoLIKE(texto);
+    }
+
 }
