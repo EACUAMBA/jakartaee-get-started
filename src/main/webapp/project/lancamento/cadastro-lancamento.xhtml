@@ -23,7 +23,7 @@
 <!--            ncluímos o atributo autoUpdate com valor true para o componente ser atualizado automaticamente quando houver uma requisição Ajax, sem que seja necessário listar o id do componente de mensagem no atributo updatede <p:ajax>-->
             <p:messages showDetail="true" showSummary="true" autoUpdate="true"/>
 
-            <h:panelGrid columns="2">
+            <p:panelGrid columns="2">
                 <p:outputLabel value="Tipo de Lançamento" for="tipoLancamentoSelectOneRadio"/>
                 <p:selectOneRadio id="tipoLancamentoSelectOneRadio"
                                   value="#{registoLancamentoBean.lancamento.tipoLancamento}" label="Tipo de Lançamento">
@@ -51,14 +51,14 @@
                 </p:inputText>
 
                 <p:outputLabel value="Data de Vencimento"/>
-                <p:inputText value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento">
+                <p:inputText size="60" value="#{registoLancamentoBean.lancamento.dataVencimento}" label="Data de vencimento">
                     <f:ajax render="@this dataPagamento" execute="@this dataPagamento"
                             listener="#{registoLancamentoBean.dataVencimentoAlterada}"/>
                     <f:convertDateTime locale="pt_MZ" timeZone="Africa/Central" pattern="dd-MM-yyyy" type="localDate"/>
                 </p:inputText>
 
                 <p:outputLabel value="Data de Pagamento"/>
-                <p:inputText id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}"
+                <p:inputText size="60" id="dataPagamento" value="#{registoLancamentoBean.lancamento.dataPagamento}"
                              label="Data de pagamento">
                     <f:convertDateTime pattern="dd-MM-yyyy Hp:mm:ss" type="localDateTime" timeZone="Africa/Central"/>
                 </p:inputText>
@@ -69,7 +69,7 @@
                                  icon="ui-icon-disk"
                                  update="@form">
                 </p:commandButton>
-            </h:panelGrid>
+            </p:panelGrid>
         </h:form>
     </ui:define>
 </ui:composition>
