@@ -1,6 +1,7 @@
 package com.eacuamba.project.domain.repository;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.TypedQuery;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,4 +20,11 @@ public class LancamentoRepository extends BaseRepository<com.eacuamba.project.do
     public Optional<com.eacuamba.project.domain.model.Lancamento> findById(Long id){
         return Optional.of(this.entityManager.find(com.eacuamba.project.domain.model.Lancamento.class, id));
     }
+
+    public List<String> findAllDescricaoLIKE(String text){
+        TypedQuery<String> descricaoTypedQuery = this.entityManager.createQuery("SELECT DISTINCT l.descricao FROM Lancamento l WHERE UPPER(l.descricao) LIKE UPPER(:descricao) ", String.class);
+        descricaoTypedQuery.setParameter("descricao", text);
+        return descricaoTypedQuery.getResultList();
+    }
+
 }
