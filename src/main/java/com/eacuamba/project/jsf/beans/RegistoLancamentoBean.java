@@ -5,6 +5,7 @@ import com.eacuamba.project.domain.exceptions.NegocioException;
 import com.eacuamba.project.domain.model.Lancamento;
 import com.eacuamba.project.domain.model.Pessoa;
 import com.eacuamba.project.domain.model.enumeration.TipoLancamento;
+import com.eacuamba.project.domain.repository.LancamentoRepository;
 import com.eacuamba.project.domain.services.LancamentoService;
 import com.eacuamba.project.domain.services.PessoaService;
 import jakarta.faces.application.FacesMessage;
@@ -20,6 +21,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 
 @Named
 @ViewScoped
@@ -27,12 +29,19 @@ public class RegistoLancamentoBean implements Serializable {
     @Inject
     private LancamentoService lancamentoService;
     @Inject
+    private LancamentoRepository lancamentoRepository;
+    @Inject
     private PessoaService pessoaService;
     private List<Pessoa> pessoaList;
     private Lancamento lancamento = new Lancamento();
 
     public void prepararCadastro(){
         this.pessoaList = this.pessoaService.buscarTodasPessoas();
+
+        //Coloqeui istro para no momento da instanciacao ele não dar null pointer exception ao chamar os metodos para pegar o nome e etc.
+        if(Objects.isNull(this.lancamento)){
+            this.lancamento = new Lancamento();
+        }
     }
 
     //Executado quando uma acção é executada, acçao dos buttons.
@@ -88,5 +97,15 @@ public class RegistoLancamentoBean implements Serializable {
     public List<String> pesquisarDescricoes(String texto){
         return this.lancamentoService.findAllDescricaoLIKE(texto);
     }
+
+    public void delete(Lancamento lancamento) throws NegocioException{
+
+        if(Objects.nonNull(lancamento.getDataPagamento())){
+            throw new NegocioException("Não é possível excluir um lançamento pago!");
+        }
+
+        this.lancamentoRepository.delete(lancamento.getId());
+    }
+
 
 }
