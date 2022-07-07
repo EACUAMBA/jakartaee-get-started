@@ -1,43 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-        xmlns:p="http://primefaces.org/ui"
->
-
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Olá JSF</title>
-    <h:outputStylesheet>
-        body {
-            padding: 0;
-            margin: 0;
-            height: 100vh;
+    <h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css"/>
 
-            background: crimson;
-            color: white;
-        }
-
-        h1 {
-            font-size: 2rem;
-            font-weight: bolder;
-            text-transform: uppercase;
-        }
-        div{
-            margin: 32px;
-            display: flex;
-            flex-direction: column;
-gap: 8px;
-        }
-    </h:outputStylesheet>
 </h:head>
 
 <h:body>
     <h:form>
         <h1>Olá bem vindo ao meu projecto de aprendizagem de JSF.</h1>
-        <div>
-            <h1>Lançamentos</h1>
-            <p:commandButton action="/project/lancamento/cadastro-lancamento?faces-redirect=true" value="Cadastrar lançamentos"/>
+        <div class="p-grid ">
+            <h1 class="">Lançamentos</h1>
+            <p:commandButton action="/project/lancamento/cadastro-lancamento?faces-redirect=true"
+                             value="Cadastrar lançamentos"/>
             <h:commandButton action="/project/lancamento/lancamentos" value="Listar"/>
         </div>
     </h:form>

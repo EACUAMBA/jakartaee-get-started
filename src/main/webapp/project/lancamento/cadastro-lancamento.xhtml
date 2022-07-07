@@ -6,10 +6,12 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
 >
 <!--Estou chamando o template que criei-->
 <ui:composition template="/WEB-INF/template/template.xhtml">
     <f:metadata>
+        <o:viewParam name="id" value="#{registoLancamentoBean.lancamento}"/>
         <f:viewAction action="#{registoLancamentoBean.prepararCadastro}"/>
     </f:metadata>
 
@@ -20,7 +22,8 @@
     <ui:define name="corpo">
         <h1>Cadastro de Lançamento</h1>
         <h:form id="frm">
-            <h:messages showDetail="true" showSummary="true"/>
+<!--            ncluímos o atributo autoUpdate com valor true para o componente ser atualizado automaticamente quando houver uma requisição Ajax, sem que seja necessário listar o id do componente de mensagem no atributo updatede <p:ajax>-->
+            <p:messages showDetail="true" showSummary="true" autoUpdate="true"/>
 
             <h:panelGrid columns="2">
                 <p:outputLabel value="Tipo de Lançamento" for="tipoLancamentoSelectOneButton"/>
@@ -54,8 +57,12 @@
                 </p:selectOneMenu>
 
                 <p:outputLabel value="Descrição"/>
-                <p:inputText size="80" label="Descrição" value="#{registoLancamentoBean.lancamento.descricao}"
-                             valueChangeListener="#{registoLancamentoBean.descricaoModificada}" immediate="true"/>
+				
+                <p:autoComplete
+                        size="60"
+                        label="Descrição"
+                        value="#{registoLancamentoBean.lancamento.descricao}"
+                        completeMethod="#{registoLancamentoBean.pesquisarDescricoes}"/>
 
                 <p:outputLabel value="Valor"/>
                 <p:inputText size="12" value="#{registoLancamentoBean.lancamento.valor}" label="Valor">
@@ -99,8 +106,9 @@
                 <p:commandButton value="Salvar" action="#{registoLancamentoBean.salvar}"
                                  actionListener="#{registoLancamentoBean.mostraLogSalvamento}">
                     <f:ajax execute="@form" render="@form"/>
+
                 </p:commandButton>
-            </h:panelGrid>
+            </p:panelGrid>
         </h:form>
     </ui:define>
 </ui:composition>

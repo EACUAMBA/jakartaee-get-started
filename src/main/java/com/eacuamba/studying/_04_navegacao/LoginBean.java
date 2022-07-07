@@ -34,4 +34,9 @@ public class LoginBean {
         }
     }
 
+    public String logout(){
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "/login?faces-redirect=true";
+    }
+
 }
